@@ -1,14 +1,11 @@
-package base;
-
-
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class SearchTests extends BaseTests {
 
-    @Test
+     @Test
     public void testSearchByFullTitle(){
         String title = "Agile Testing";
-        page.search(title);
+        Page.search(title);
         validateWindow();
     }
 }
