@@ -1,4 +1,5 @@
-import com.applitools.eyes.MatchLevel;
+package base;
+
 import com.applitools.eyes.selenium.Eyes;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -8,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
+
 
 public class BaseTests {
 
@@ -27,7 +29,7 @@ public class BaseTests {
         driver = new ChromeDriver();
         initiateEyes();
 
-        driver.get(System.getProperty("https://the-internet.herokuapp.com/dynamic_content"));
+        driver.get(System.getProperty("https://the-internet.herokuapp.com/large"));
     }
 
     @AfterClass
@@ -43,7 +45,7 @@ public class BaseTests {
 
     public void validateWindow(){
         eyes.open(driver, "The Internet", Thread.currentThread().getStackTrace()[2].getMethodName());
-        eyes.setMatchLevel(MatchLevel.LAYOUT);
+        eyes.setForceFullPageScreenshot(true);
         eyes.checkWindow();
         eyes.close();
     }
